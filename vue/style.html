@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>style</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+  // 1.
+  <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+
+  // 2.直接绑定到一个样式对象通常更好，这会让模板更清晰：
+  <div v-bind:style="styleObject"></div>
+
+  // 3.数组语法可以将多个样式对象应用到同一个元素上：
+  <div v-bind:style="[baseStyles, overridingStyles]"></div>
+
+  <script>
+    var vm = new Vue({
+      // 1.
+      data: {
+        activeColor: 'red',
+        fontSize: 30
+      },
+
+      // 2.直接绑定到一个样式对象通常更好，这会让模板更清晰：
+      data: {
+        styleObject: {
+          color: 'red',
+          fontSize: '13px'
+        }
+      }
+    })
+  </script>
+</body>
+</html>
